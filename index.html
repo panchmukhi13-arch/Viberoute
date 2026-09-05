@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VIBERoute - Smarter Routes</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+  <div class="logo">VIBERoute</div>
+  <div class="nav-links">Dashboard • Live Traffic • AI Prediction</div>
+</nav>
+<main>
+  <div class="left-panel">
+    <h1>Smarter Routes, <span>Faster Travel</span></h1>
+    <div class="input-group">
+      <input id="from" placeholder="📍 From - Meerut City">
+      <input id="to" placeholder="🏁 To - Delhi Airport">
+    </div>
+    <button onclick="findRoute()">Get Fastest Route + AI Prediction →</button>
+
+    <div class="result-card">
+      <h3>⚡ Fastest Route</h3>
+      <p><b id="eta">--</b> | <span id="trafficStatus">Location dalo</span></p>
+      <p id="details">Time bachao, Jam se bacho</p>
+    </div>
+
+    <div class="result-card" style="border-color:#2ec4b6; background:#122a2f">
+      <h3>🤖 AI Jam Prediction (Contest Special)</h3>
+      <p id="aiPredict">From/To dalte hi AI batayega</p>
+      <small id="aiReason" style="opacity:0.8"></small>
+    </div>
+  </div>
+  <div class="right-panel"><div id="map"></div></div>
+</main>
+
+<!-- YAHAN API KEY DALO -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjm779QCl3s1qB-hyJRWTobC0ItbyJhNU&libraries=places&callback=initMap" async defer></script>
+<script src="script.js"></script>
+</body>
+</html>
