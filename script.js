@@ -4,14 +4,10 @@ function initMap() {
   directionsService = new google.maps.DirectionsService();
   directionsRenderer = new google.maps.DirectionsRenderer({ map: map, polylineOptions: { strokeColor: "#2ec4b6", strokeWeight: 6 } });
 }
-
-// AI JAM PREDICTION - Judges ke liye special
 function aiJamPrediction(from, to) {
   let hour = new Date().getHours();
   let day = new Date().getDay();
   let prediction = "", reason = "";
-
-  // AI Logic - Time based
   if ((hour >= 8 && hour <= 10) || (hour >= 17 && hour <= 20)) {
     prediction = "🔴 85% Chance Heavy Jam in next 30 min";
     reason = `AI ne dekha hai ki ${hour}:00 baje ${to} ki taraf office traffic peak hota hai. Pichle 7 din ka pattern.`;
@@ -31,11 +27,7 @@ function findRoute() {
   let from = document.getElementById('from').value;
   let to = document.getElementById('to').value;
   if(!from ||!to) return alert("Dono location bharo ji");
-
-  // 1. AI Prediction chalao
   aiJamPrediction(from, to);
-
-  // 2. Google Real Traffic Route
   const request = {
     origin: from, destination: to,
     travelMode: google.maps.TravelMode.DRIVING,
